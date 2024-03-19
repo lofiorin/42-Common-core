@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lofiorin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 10:44:03 by lofiorin          #+#    #+#             */
-/*   Updated: 2023/10/15 10:44:04 by lofiorin         ###   ########.fr       */
+/*   Created: 2023/10/15 10:47:09 by lofiorin          #+#    #+#             */
+/*   Updated: 2023/10/15 10:47:11 by lofiorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isdigit(int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	if (c > 47 && c < 58)
-		return (1);
-	return (0);
-}
+	char	*s_cpy;
+	size_t	i;
 
+	i = ft_strlen(s);
+	s_cpy = (char *)s;
+	while (i > 0)
+	{
+		if (s_cpy[i] == (unsigned char)c)
+			return (&s_cpy[i]);
+		i--;
+	}
+	if (s_cpy[i] == (unsigned char) c)
+		return (&s_cpy[i]);
+	return (NULL);
+}

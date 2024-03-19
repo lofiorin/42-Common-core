@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_lstiteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lofiorin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 10:44:03 by lofiorin          #+#    #+#             */
-/*   Updated: 2023/10/15 10:44:04 by lofiorin         ###   ########.fr       */
+/*   Created: 2023/10/23 09:48:34 by lofiorin          #+#    #+#             */
+/*   Updated: 2023/10/23 09:48:36 by lofiorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_isdigit(int c)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (c > 47 && c < 58)
-		return (1);
-	return (0);
-}
+	t_list	*i;
 
+	i = (t_list *)lst;
+	if (i && f)
+	{
+		while (i)
+		{
+			f(i -> content);
+			i = i -> next;
+		}
+	}
+}

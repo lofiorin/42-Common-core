@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lofiorin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 10:44:03 by lofiorin          #+#    #+#             */
-/*   Updated: 2023/10/15 10:44:04 by lofiorin         ###   ########.fr       */
+/*   Created: 2023/10/15 13:49:44 by lofiorin          #+#    #+#             */
+/*   Updated: 2023/10/15 13:49:45 by lofiorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_isdigit(int c)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	if (c > 47 && c < 58)
-		return (1);
-	return (0);
-}
+	char	*big_cpy;
+	size_t	l_len;
 
+	big_cpy = (char *) big;
+	l_len = ft_strlen(little);
+	if (ft_strlen(little) == 0)
+		return (big_cpy);
+	while (len > 0 && *big_cpy)
+	{
+		if (*big_cpy == *little)
+		{
+			if (ft_strncmp(big_cpy, little, l_len) == 0
+				&& l_len <= len)
+				return (big_cpy);
+		}
+		big_cpy++;
+		len--;
+	}
+	return (NULL);
+}

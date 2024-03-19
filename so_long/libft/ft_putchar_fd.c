@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lofiorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lofiorin <lofiorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/15 10:44:03 by lofiorin          #+#    #+#             */
-/*   Updated: 2023/10/15 10:44:04 by lofiorin         ###   ########.fr       */
+/*   Created: 2023/10/20 14:51:03 by lofiorin          #+#    #+#             */
+/*   Updated: 2024/01/22 11:12:16 by lofiorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int	ft_putchar_fd(char c, int fd)
 {
-	if (c > 47 && c < 58)
-		return (1);
-	return (0);
+	return (write(fd, &c, 1));
 }
-
